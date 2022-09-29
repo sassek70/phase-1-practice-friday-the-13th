@@ -32,15 +32,12 @@ const createMovieImage = (movie) =>{
 
 const updateDisplay = (movie) => {
 //Get all elements of main movie
-    const movieDetailDiv = document.getElementById('movie-info')
     const movieDetailImage = document.getElementById('detail-image')
     const movieDetailTitle = document.getElementById('title')
     const movieDetailYear = document.getElementById('year-released')
     const movieDetailDesc = document.getElementById('description')
     const movieWatchedStatus = document.getElementById('watched')
     const movieBloodAmount = document.getElementById('amount')
-    const newBloodAmount = document.getElementById('blood-amount')
-    const updateBlood = document.getElementsByTagName('input')[1]
     
     //Update DOM to display main movie
     movieDetailTitle.textContent = movie.title
@@ -70,7 +67,7 @@ const watchedButton = document.getElementById('watched')
         updateStatus(`http://localhost:3000/movies/${moviesArray.id}`, {watched: moviesArray.watched})
         .then(res => res.json())
         .then(watched => updateDisplay(watched))
-})           
+})            
     
 //Add event listener to "Add Blood" button. Get elements that need to update and provide input for new blood amount
 //Update object key:value and PATCH.
